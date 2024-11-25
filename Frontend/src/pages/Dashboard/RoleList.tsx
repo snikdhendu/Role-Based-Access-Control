@@ -15,8 +15,8 @@ export default function RoleList({ roles }: RoleListProps) {
           className="relative rounded-lg border border-gray-200 bg-white p-6 shadow-sm hover:shadow-md transition-shadow"
         >
           <div className="flex items-center">
-            <div className="flex-shrink-0">
-              <Shield className="h-6 w-6 text-indigo-600" />
+            <div className="flex-shrink-0 bg-sky-200 p-5 rounded-full">
+              <Shield className="h-8 w-8 text-indigo-600 text-3xl" />
             </div>
             <div className="ml-4">
               <h3 className="text-lg font-medium text-gray-900">{role.name}</h3>

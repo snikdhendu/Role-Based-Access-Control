@@ -1,12 +1,12 @@
 // import React from 'react';
 import { useState } from 'react';
-import { Menu, X} from 'lucide-react'
+import { Menu, X } from 'lucide-react'
 import { Link } from 'react-router-dom';
 
 const Navbar = () => {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
     return (
-        <header className="bg-transparent shadow-sm lg:static lg:overflow-y-visible">
+        <header className="bg-transparent shadow-sm lg:static lg:overflow-y-visible ml-4">
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 <div className="relative flex  lg:gap-8 xl:grid xl:grid-cols-12  ">
                     <div className="flex md:absolute md:inset-y-0 md:left-0 lg:static xl:col-span-2 ">
@@ -19,6 +19,9 @@ const Navbar = () => {
                     <div className="min-w-0 flex-1 md:px-8 lg:px-0 xl:col-span-6  flex justify-center ml-20">
                         <div className="flex items-center px-6 py-4 md:mx-auto md:max-w-3xl lg:mx-0 lg:max-w-none xl:px-0">
                             <nav className="hidden md:flex space-x-10">
+                                <Link to=''  className="text-base font-medium text-gray-500 hover:text-gray-900">
+                                    Home
+                                </Link>
                                 <a href="#features" className="text-base font-medium text-gray-500 hover:text-gray-900">
                                     Features
                                 </a>
@@ -43,12 +46,12 @@ const Navbar = () => {
                     </div>
                     <div className="hidden lg:flex lg:items-center lg:justify-end xl:col-span-4">
                         <Link to='/login'
-                           
+
                             className="ml-6 inline-flex items-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-white hover:bg-indigo-700   text-base font-medium  focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
                         >
                             Sign in
                         </Link>
-                      
+
                     </div>
                 </div>
             </div>
