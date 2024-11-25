@@ -2,9 +2,11 @@
 import { useState } from 'react';
 import { Menu, X } from 'lucide-react'
 import { Link } from 'react-router-dom';
+import { useAuthStore } from '@/store/authStore';
 
 const Navbar = () => {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+    const { isAuthenticated } = useAuthStore();
     return (
         <header className="bg-transparent shadow-sm lg:static lg:overflow-y-visible ml-4">
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -19,7 +21,7 @@ const Navbar = () => {
                     <div className="min-w-0 flex-1 md:px-8 lg:px-0 xl:col-span-6  flex justify-center ml-20">
                         <div className="flex items-center px-6 py-4 md:mx-auto md:max-w-3xl lg:mx-0 lg:max-w-none xl:px-0">
                             <nav className="hidden md:flex space-x-10">
-                                <Link to=''  className="text-base font-medium text-gray-500 hover:text-gray-900">
+                                <Link to='' className="text-base font-medium text-gray-500 hover:text-gray-900">
                                     Home
                                 </Link>
                                 <a href="#features" className="text-base font-medium text-gray-500 hover:text-gray-900">
@@ -45,12 +47,21 @@ const Navbar = () => {
                         </button>
                     </div>
                     <div className="hidden lg:flex lg:items-center lg:justify-end xl:col-span-4">
-                        <Link to='/login'
+                        {isAuthenticated ?
+                            (<Link to='/login'
 
-                            className="ml-6 inline-flex items-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-white hover:bg-indigo-700   text-base font-medium  focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
-                        >
-                            Sign in
-                        </Link>
+                                className="ml-6 inline-flex items-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-white hover:bg-indigo-700   text-base font-medium  focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+                            >
+                                Sign in
+                            </Link>) :
+                            (<>
+                                <img
+                                    src="https://plus.unsplash.com/premium_photo-1689539137236-b68e436248de?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8bWFuJTIwYXZhdGFyfGVufDB8fDB8fHww"
+                                    alt="Avatar"
+                                    className="h-8 w-8 rounded-full object-cover"
+                                />
+                            </>)}
+
 
                     </div>
                 </div>
