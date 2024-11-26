@@ -17,7 +17,7 @@
 ### User Management (only for Admin)
 [![Screenshot-2024-11-26-145042.png](https://i.postimg.cc/3xHsyJs8/Screenshot-2024-11-26-145042.png)](https://postimg.cc/N5pJSYGS)
 
-### Task Management (Only for Amin )
+### Task Management (Only for Admin )
 [![Screenshot-2024-11-26-145113.png](https://i.postimg.cc/htLqM7LQ/Screenshot-2024-11-26-145113.png)](https://postimg.cc/87z3zcnT)
 
 
