@@ -9,9 +9,11 @@ import { roles, users } from '@/data/mock';
 import { PlusCircle } from 'lucide-react';
 import Task from './Task';
 import Profile from './Profile';
+import { useState } from 'react';
 
 const Dashboard = () => {
     const { user, isAuthenticated } = useAuthStore();
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
     // Redirect to login if not authenticated
     if (!isAuthenticated) {
@@ -21,7 +23,10 @@ const Dashboard = () => {
     return (
         <div className="flex h-screen bg-gray-100">
             <>
-                <Sidebar />
+                <Sidebar
+                    isMobileMenuOpen={isMobileMenuOpen}
+                    setIsMobileMenuOpen={setIsMobileMenuOpen}
+                />
                 <main className="flex-1 overflow-y-auto">
                     <div className="py-6">
                         <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-8">

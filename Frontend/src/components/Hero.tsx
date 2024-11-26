@@ -12,12 +12,12 @@ export default function Hero() {
         {/* <div className="min-h-screen bg-transparent  p-14"> */}
 
 
-        <div className="container mx-auto px-4 sm:px-6 sm:py-8 lg:px-2">
+        <div className="container mx-auto px-4 sm:px-2 sm:py-8 lg:px-2 ">
 
           <div className="grid gap-8 lg:grid-cols-2 lg:gap-16">
             <div className="flex flex-col justify-center space-y-8">
               <div className="">
-                <div className="absolute top-1 left-2">
+                <div className="absolute lg:top-1 lg:left-2 hidden lg:block">
                   <AnimatedGradientTextDemo />
                 </div>
                 <h1 className="mt-4 text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl md:text-6xl">
@@ -63,34 +63,7 @@ export default function Hero() {
               </div>
             </div>
 
-            <div className="flex items-center justify-center h-4/5 bg-gradient-to-r from-purple-600 to-orange-400 p-2 rounded-lg">
-              {/* <div className="w-full max-w-md rounded-xl bg-white p-6 shadow-xl ">
-                <div className="mb-4 flex items-center justify-between">
-                  <span className="text-xs font-semibold uppercase tracking-wide text-gray-500 ">
-                    DEMO
-                  </span>
-                  <span className="text-xs text-gray-500 ">
-                    Try it now
-                  </span>
-                </div>
-                <div className="space-y-4">
-                  <div>
-                    <input
-                      type="text"
-                      placeholder="user.canAccess('admin-dashboard')"
-                      className="w-full rounded-md border-gray-300 bg-white px-3 py-2 text-gray-900 placeholder-gray-500 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500 "
-                    />
-                  </div>
-                  <button className="w-full rounded-md bg-indigo-600 py-2 px-4 text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
-                    Check Permission
-                  </button>
-                  <div className="rounded-lg bg-gray-50 p-4 ">
-                    <p className="font-mono text-sm text-gray-700 ">
-                      Result will be shown here...
-                    </p>
-                  </div>
-                </div>
-              </div> */}
+            <div className="flex items-center justify-center h-4/5 lg:bg-gradient-to-r from-purple-600 to-orange-400 bg-transparent p-2 rounded-lg">
                  <HeroVideoDialogDemo/>
             </div>
           </div>

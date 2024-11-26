@@ -26,7 +26,7 @@ export const LoginPage = () => {
   return (
     <GridPatternLinearGradient >
       <div className="container mx-auto px-4 sm:px-6 sm:py-8 lg:px-2 ">
-        <div className="max-w-md w-[500px] bg-white rounded-lg shadow-xl overflow-hidden">
+        <div className="max-w-md lg:w-[500px] w-[320px] bg-white rounded-lg shadow-xl overflow-hidden">
           <div className="px-8 py-12">
             <div className="text-center mb-8">
               <h2 className="text-3xl font-bold text-gray-800">Welcome Back</h2>

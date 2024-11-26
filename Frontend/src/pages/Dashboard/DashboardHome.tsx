@@ -1,6 +1,6 @@
 "use client"
-
-import { Bell, ChevronDown, Search, Users, UserCheck, ShieldCheck, Key } from 'lucide-react'
+import { useState } from 'react'
+import { Bell, ChevronDown, Search, Users, UserCheck, ShieldCheck, Key, Menu } from 'lucide-react'
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from "recharts"
 import { PieChart, Pie, Cell } from "recharts"
 import { LineChart, Line } from "recharts"
@@ -8,6 +8,7 @@ import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis } from "r
 import UserList from "./UserList"
 import { users } from '@/data/mock'
 import { useAuthStore } from '@/store/authStore'
+
 
 
 // Sample data (unchanged)
@@ -36,14 +37,28 @@ const permissionsRadarData = [
 ]
 
 const DashboardHome = () => {
+  const [isMobileSidebarOpen, setIsMobileSidebarOpen] = useState(false);
   const { user } = useAuthStore();
+
+  const toggleMobileSidebar = () => {
+    setIsMobileSidebarOpen(!isMobileSidebarOpen);
+  };
 
   return (
     <div className="min-h-screen bg-transparent">
       {/* Header */}
       <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <div className="container flex h-14 items-center justify-between">
-          <div className="relative w-full max-w-md">
+          <div className="md:hidden">
+            <button
+              onClick={toggleMobileSidebar}
+              className="flex h-9 w-9 items-center justify-center hover:bg-slate-100 rounded-md"
+            >
+              <Menu className="h-6 w-6 text-slate-600" />
+            </button>
+          </div>
+
+          <div className="relative w-full max-w-md lg:block hidden">
             <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-slate-500" />
             <input
               type="search"
@@ -70,19 +85,26 @@ const DashboardHome = () => {
         </div>
       </header>
 
+      {isMobileSidebarOpen && (
+        <div
+          className="md:hidden fixed inset-0 z-40 bg-black/50"
+          onClick={() => setIsMobileSidebarOpen(false)}
+        />
+      )}
       <div className="container py-8">
         <h1 className="text-2xl font-semibold text-slate-800 mb-8">Dashboard Overview</h1>
 
+
+        {/* specific for normal user */}
+
         {user?.role === "user" &&
           <div className="bg-gradient-to-r from-textmain to-yellow-300 text-white font-bold text-3xl w-full rounded-md bg-teal-600 h-36 flex justify-left p-8 items-center flex-col gap-3 ">
-            <h1>Hello , <span className=" text-white text-4xl font-extrabold">RBAC USER</span>. 👋</h1>
-            <p className=" text-base font-royal4">
+            <h1>Hello , <span className=" text-white  text-4xl font-extrabold">RBAC USER</span>. 👋</h1>
+            <p className=" lg:text-base text-sm font-royal4">
               Welcome to your Dashboard!
               Check your latest progress and insights on today.</p>
           </div>
-
         }
-
         {user?.role === "user" &&
           <div className=" flex  flex-wrap gap-3 mt-5">
             {/* Bar Chart: Users by Role */}
@@ -176,7 +198,7 @@ const DashboardHome = () => {
           </div>
 
         }
-
+        {/* specific for normal admin */}
 
         {/* Summary Cards */}
         {user?.role === "admin" &&

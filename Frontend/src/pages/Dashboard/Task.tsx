@@ -114,6 +114,8 @@ export default function UserList({ users }: UserListProps) {
 
                 </table>
             )}
+
+            {/* only for user */}
             {
             user?.role === "user" && (
                     <div className="bg-white rounded-xl shadow-sm p-6 w-full">
@@ -146,7 +148,7 @@ export default function UserList({ users }: UserListProps) {
                             ))}
                         </ul>
                     </div>
-                )}
+            )}
            
             </>
         </div>

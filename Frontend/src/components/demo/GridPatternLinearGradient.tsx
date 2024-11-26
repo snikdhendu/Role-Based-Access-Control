@@ -9,7 +9,7 @@ interface GridPatternLinearGradientProps {
 
 export function GridPatternLinearGradient({ children }: GridPatternLinearGradientProps) {
   return (
-    <div className="relative flex size-full items-center justify-center overflow-hidden rounded-lg  bg-gradient-to-b from-gray-100 to-white  p-20 ">
+    <div className="relative flex size-full items-center justify-center overflow-hidden rounded-lg  bg-gradient-to-b from-gray-100 to-white  lg:p-20 p-3  ">
       <GridPattern
         width={20}
         height={20}
